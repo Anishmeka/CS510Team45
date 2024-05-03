@@ -13,7 +13,8 @@ const Popup = () => {
   const [response, setResponse] = useState('');
 
   const onQuerySubmit = () => {
-    console.log('hiii');
+    // TODO: make api call and set response
+    setResponse('');
   };
 
   return (
