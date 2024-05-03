@@ -10,7 +10,7 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 
 const customStyles = `
   .chakra-ui-light {
-    height: auto !important; /* Override height to fit content */
+    height: auto !important;
   }
 `;
 

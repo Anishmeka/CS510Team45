@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from '../../assets/img/logo.svg';
 import './Popup.css';
 import {
   Divider,
