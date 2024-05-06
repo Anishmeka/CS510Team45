@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Popup.css';
 import {
   Divider,
@@ -13,8 +13,22 @@ const Popup = () => {
   const [response, setResponse] = useState('');
 
   const onQuerySubmit = () => {
-    // TODO: make api call and set response
-    setResponse('');
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(
+        tabs[0].id,
+        { method: 'getText' },
+        function (response) {
+          if (chrome.runtime.lastError) {
+            console.error(chrome.runtime.lastError.message);
+            return;
+          }
+          if (response && response.method === 'getText') {
+            // TODO: make API query
+            // setResponse(response.data);
+          }
+        }
+      );
+    });
   };
 
   return (
