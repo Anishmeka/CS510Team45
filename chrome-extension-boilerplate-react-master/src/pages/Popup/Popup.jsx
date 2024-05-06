@@ -12,16 +12,6 @@ import {
 const Popup = () => {
   const [response, setResponse] = useState('');
 
-  // useEffect(() => {
-
-  //   console.log(text);
-  // });
-
-  // const onQuerySubmit = () => {
-  //   // TODO: make api call and set response
-  //   // const text = document.documentElement.outerHTML;
-  // };
-
   const onQuerySubmit = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(
@@ -33,7 +23,8 @@ const Popup = () => {
             return;
           }
           if (response && response.method === 'getText') {
-            setResponse(response.data);
+            // TODO: make API query
+            // setResponse(response.data);
           }
         }
       );
