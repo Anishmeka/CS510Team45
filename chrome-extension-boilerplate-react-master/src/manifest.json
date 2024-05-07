@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Document Evaluator",
   "description": "A chrome extension that answers all your questions about the document you're viewing",
-  "permissions": ["activeTab", "tabs"],
+  "permissions": ["activeTab", "tabs", "https://api.openai.com/", "<all_urls>"],
   "options_page": "options.html",
   "background": {
     "service_worker": "background.bundle.js",
