@@ -21,9 +21,9 @@ const openAiApiCall = async (queryData, sendResponse) => {
         content: `Given the following article: ${queryData.bgText.substring(
           0,
           3000
-        )}, can you quote top three sentences or phrases from this article (take them exactly from the article word for word) that you think best match this following user inquiry about the article: ${
+        )}, can you quote top three sentences or phrases from this article (take them exactly from the article word for word) that you think best match this following user inquiry about the article: "${
           queryData.userQuery
-        } `,
+        }"`,
         // content: `Given the following article: "Congress made people poor. They took away people's homes. People were really mad. Congress also killed animals.", can you return top two sentences or phrases from the article that you think best match this following user inquiry about the article: ${queryData.userQuery} `,
       },
     ],
@@ -47,7 +47,7 @@ const openAiApiCall = async (queryData, sendResponse) => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    return data.choices[0].message.content; // Return the relevant part of the API response
+    return data.choices[0].message.content.split('\n'); // Return the relevant part of the API response
   } catch (error) {
     console.error('Error calling OpenAI API:', error);
     throw error; // Rethrow to handle in the listener

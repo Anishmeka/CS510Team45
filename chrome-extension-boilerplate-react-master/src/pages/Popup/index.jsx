@@ -11,6 +11,7 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 const customStyles = `
   .chakra-ui-light {
     height: auto !important;
+    width: 500px;
   }
 `;
 
